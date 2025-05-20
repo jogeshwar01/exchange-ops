@@ -20,3 +20,12 @@ kubectl apply -f certificate.yml
 
 kubectl get certificate
 kubectl describe certificate exchange-cert
+
+kubectl get secret exchange-tls -n default -o yaml
+kubectl get secret exchange-tls -n default -o jsonpath='{.data.tls\.crt}' | base64 --decode | openssl x509 -text -noout
+
+6. Youtube
+
+See steps - do not copy the same cert-manager ymls though
+
+https://www.youtube.com/watch?v=DvXkD0f-lhY&pp=ygUXY2VydCBtYW5hZ2VyIGt1YmVybmV0ZXM%3D

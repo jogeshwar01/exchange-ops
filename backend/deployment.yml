@@ -20,18 +20,18 @@ spec:
           env:
             - name: SERVER_ADDR
               valueFrom:
-                configMapKeyRef:
-                  name: exchange-router-config
+                secretKeyRef:
+                  name: exchange-router-secret
                   key: server_addr
             - name: DATABASE_URL
               valueFrom:
-                configMapKeyRef:
-                  name: exchange-router-config
+                secretKeyRef:
+                  name: exchange-router-secret
                   key: database_url
             - name: REDIS_URL
               valueFrom:
-                configMapKeyRef:
-                  name: exchange-router-config
+                secretKeyRef:
+                  name: exchange-router-secret
                   key: redis_url
 ---
 apiVersion: v1
