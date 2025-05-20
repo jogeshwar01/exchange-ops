@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-router-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-router
+  template:
+    metadata:
+      labels:
+        app: exchange-router
+    spec:
+      containers:
+        - name: exchange-router
+          image: jogeshwar01/exchange-router:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SERVER_ADDR
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-router-config
+                  key: server_addr
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-router-config
+                  key: database_url
+            - name: REDIS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-router-config
+                  key: redis_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exchange-router-service
+spec:
+  selector:
+    app: exchange-router
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30007
+  type: NodePort

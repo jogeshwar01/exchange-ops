@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-db-processor-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-db-processor
+  template:
+    metadata:
+      labels:
+        app: exchange-db-processor
+    spec:
+      containers:
+        - name: exchange-db-processor
+          image: jogeshwar01/exchange-db-processor:latest
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-db-processor-config
+                  key: database_url
+            - name: REDIS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-db-processor-config
+                  key: redis_url

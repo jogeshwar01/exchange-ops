@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-ws-stream-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-ws-stream
+  template:
+    metadata:
+      labels:
+        app: exchange-ws-stream
+    spec:
+      containers:
+        - name: exchange-ws-stream
+          image: jogeshwar01/exchange-ws-stream:latest
+          ports:
+            - containerPort: 4000
+          env:
+            - name: WS_STREAM_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-ws-stream-config
+                  key: ws_stream_url
+            - name: REDIS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-ws-stream-config
+                  key: redis_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exchange-ws-stream-service
+spec:
+  selector:
+    app: exchange-ws-stream
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+      nodePort: 30008
+  type: NodePort

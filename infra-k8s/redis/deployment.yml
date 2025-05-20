@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-redis
+  template:
+    metadata:
+      labels:
+        app: exchange-redis
+    spec:
+      containers:
+        - name: exchange-redis
+          image: redis:6.2-alpine
+          ports:
+            - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exchange-redis-service
+spec:
+  selector:
+    app: exchange-redis
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 6379
+  type: ClusterIP

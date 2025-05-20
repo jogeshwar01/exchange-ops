@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-engine-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-engine
+  template:
+    metadata:
+      labels:
+        app: exchange-engine
+    spec:
+      containers:
+        - name: exchange-engine
+          image: jogeshwar01/exchange-engine:latest
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-engine-config
+                  key: database_url
+            - name: REDIS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: exchange-engine-config
+                  key: redis_url
