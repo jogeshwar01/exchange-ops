@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: exchange.jogeshwar.xyz
+      http:
+        paths:
+          - path: /backend(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: exchange-router-service
+                port:
+                  number: 80
+          - path: /ws
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: exchange-ws-stream-service
+                port:
+                  number: 80
