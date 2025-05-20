@@ -33,7 +33,14 @@ spec:
                 configMapKeyRef:
                   name: exchange-postgres-config
                   key: POSTGRES_DB
-
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              subPath: postgres-data
+              name: postgres-storage
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: postgres-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -47,5 +54,3 @@ spec:
       port: 80
       targetPort: 5432
   type: ClusterIP
-
-
