@@ -4,8 +4,13 @@ metadata:
   name: ingress-nginx
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - exchange.jogeshwar.xyz
+      secretName: exchange-tls
   rules:
     - host: exchange.jogeshwar.xyz
       http:
