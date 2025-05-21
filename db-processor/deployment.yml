@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: exchange-db-processor
-          image: jogeshwar01/exchange-db-processor:latest
+          image: jogeshwar01/exchange-db-processor:507aee0ec507d3bce462c0fde963e5ca613d251f
           env:
             - name: DATABASE_URL
               valueFrom:

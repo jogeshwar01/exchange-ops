@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: exchange-router
-          image: jogeshwar01/exchange-router:latest
+          image: jogeshwar01/exchange-router:507aee0ec507d3bce462c0fde963e5ca613d251f
           ports:
             - containerPort: 8080
           env:

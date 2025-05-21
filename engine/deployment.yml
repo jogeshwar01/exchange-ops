@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: exchange-engine
-          image: jogeshwar01/exchange-engine:latest
+          image: jogeshwar01/exchange-engine:507aee0ec507d3bce462c0fde963e5ca613d251f
           env:
             - name: DATABASE_URL
               valueFrom:
