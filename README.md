@@ -1,6 +1,6 @@
 # 🚀 Kubernetes Exchange Cluster
 
-A bulletproof, production-grade Kubernetes setup built specifically for running modern exchange platforms—secure, scalable, and cloud-native from day one. Whether you're launching a **crypto exchange**, **DeFi app**, or **high-frequency trading platform**, this cluster is designed to keep your services fast, resilient, and secure.
+A bulletproof, production-grade Kubernetes setup hosted on Google Cloud Platform (GCP) built specifically for running modern exchange platforms—secure, scalable, and cloud-native from day one. Whether you're launching a **crypto exchange**, **DeFi app**, or **high-frequency trading platform**, this cluster is designed to keep your services fast, resilient, and secure.
 
 ---
 
