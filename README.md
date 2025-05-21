@@ -2,11 +2,13 @@
 
 A bulletproof, production-grade Kubernetes setup hosted on Google Cloud Platform (GCP) built specifically for running modern exchange platforms—secure, scalable, and cloud-native from day one. Whether you're launching a **crypto exchange**, **DeFi app**, or **high-frequency trading platform**, this cluster is designed to keep your services fast, resilient, and secure.
 
+**Repository:** [jogeshwar01/exchange](https://github.com/jogeshwar01/exchange)
+
 ---
 
 ## 🧱 Architecture
 
-![Image](architecture.png)
+![Image](images/architecture.png)
 
 > Battle-tested components for a modern, composable infrastructure stack:
 
@@ -32,7 +34,7 @@ Running an exchange is about more than just uptime—it's about **security**, **
 | Layer           | Tooling                     |
 | --------------- | --------------------------- |
 | Cluster         | Kubernetes (K8s), Helm      |
-| Deployment      | ArgoCD GitOps               | 
+| Deployment      | ArgoCD GitOps               |
 | Networking      | NGINX Ingress, LoadBalancer |
 | Secrets         | Sealed Secrets              |
 | Certificates    | cert-manager                |
@@ -52,3 +54,12 @@ Running an exchange is about more than just uptime—it's about **security**, **
 - 🧪 **Kubernetes experimentation lab**
 
 ---
+
+## 🤖 ArgoCD GitOps
+
+This cluster is built on top of [ArgoCD](https://argo-cd.readthedocs.io/en/stable/), a GitOps tool that allows you to declaratively manage your Kubernetes clusters.
+
+![Image](images/argocd-1.png)
+![Image](images/argocd-2.png)
+![Image](images/argocd-3.png)
+![Image](images/argocd-4.png)
