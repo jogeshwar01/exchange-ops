@@ -17,7 +17,7 @@ A bulletproof, production-grade Kubernetes setup hosted on Google Cloud Platform
 - 💾 **Persistent Volume Claims (PVCs)** – State-safe storage for order books, ledgers, and more
 - 📊 **Horizontal Pod Autoscaling (HPA)** – Auto-scale based on CPU/memory or custom metrics
 - 🔎 **Observability** – Drop-in support for Prometheus, Grafana, Loki, and other observability stacks
-- 🛡️ **Security Best Practices** – sealed secrets, tls certificates, managed access to storage, and more
+- 🛡️ **Security Best Practices** – sealed secrets, TLS certificates, managed access to storage, and more — all enforced via GitOps workflows and ArgoCD syncs
 
 ---
 
@@ -32,6 +32,7 @@ Running an exchange is about more than just uptime—it's about **security**, **
 | Layer           | Tooling                     |
 | --------------- | --------------------------- |
 | Cluster         | Kubernetes (K8s), Helm      |
+| Deployment      | ArgoCD GitOps               | 
 | Networking      | NGINX Ingress, LoadBalancer |
 | Secrets         | Sealed Secrets              |
 | Certificates    | cert-manager                |
