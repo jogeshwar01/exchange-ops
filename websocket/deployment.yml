@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: exchange-ws-stream
-          image: jogeshwar01/exchange-ws-stream:507aee0ec507d3bce462c0fde963e5ca613d251f
+          image: jogeshwar01/exchange-ws-stream:c9898996eed2e57f5c339796f9bb134af1d397df
           ports:
             - containerPort: 4000
           env:
